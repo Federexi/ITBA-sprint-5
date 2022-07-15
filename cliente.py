@@ -214,3 +214,14 @@ class Razon_transferencia_enviada(Razon):
 class Razon_transferencia_recibida(Razon):
     def __init__(self, razon):
         super().__init__(razon)
+        
+        
+from jinja2 import Environment, PackageLoader, select_autoescape
+env = Environment(
+    loader=PackageLoader("paquete"),
+    autoescape=select_autoescape()
+)
+template = env.get_template("template.html")
+
+with open ("rps.html","w") as file:
+    file.write(template.render(data=data))
