@@ -1,8 +1,70 @@
-#importo el json 
+import sys
 import json
+from jsonschema import ValidationError, validate
 
-with open("tps.json", "r") as f:
-    data = json.load(f)
+argumentos = sys.argv #guardo en variable los datos pasados por terminal
+
+if not len(argumentos) == 2: #chequeo cantidad correcta de argumentos
+    print('La cantidad de argumentos es incorrecta')
+    exit(1)
+
+archivo = argumentos[1] #declaro el nombre del archivo como el segundo argumento pasado por terminal    
+
+schema = {
+    "type" : "object",
+    "properties" : {
+        "numero": {"type": "number"},
+        "nombre": {"type": "string"},
+        "apellido": {"type": "string"},
+        "DNI": {"type": "string"},
+        "tipo": {"enum": ["BLACK","CLASSIC","GOLD"]},
+        "direccion": {
+            "type": "object",
+            "properties": {
+                "calle": {"type": "string"},
+                "numero": {"type": "string"},
+                "ciudad": {"type": "string"},
+                "provincia": {"type": "string"},
+                "pais": {"type": "string"},
+            }
+        },
+        "transacciones": {
+            "type": "array",
+            "items": {
+                "type" : "object",
+                "properties" : {
+                    "estado": {"enum": ["ACEPTADA","RECHAZADA"]},
+                    "tipo": {"enum": ["RETIRO_EFECTIVO_CAJERO_AUTOMATICO","ALTA_TARJETA_CREDITO","ALTA_CHEQUERA","COMPRAR_DOLAR","COMPRA_DOLAR","TRANSFERENCIA_ENVIADA","TRANSFERENCIA_RECIBIDA"]},
+                    "cuentaNumero": {"type": "number"},
+                    "cupoDiarioRestante": {"type": "number"},
+                    "monto": {"type": "number"},
+                    "fecha": {"type": "string"},
+                    "numero": {"type": "number"},
+                    "saldoEnCuenta": {"type": "number"},
+                    "totalTarjetasDeCreditoActualmente": {"type": "number"},
+                    "totalChequerasActualmente": {"type": "number"}
+                }
+            }
+        }
+    }
+}
+
+try: #chequeo excistencia y lectura correcta del archivo
+    with open(archivo, "r") as f:
+        data = json.load(f)
+        try: #chequeo formateo del JSON
+            validate(instance=data, schema=schema)
+        except:
+            print('El archivo se encuentra mal formado')
+            exit(1)
+
+except IOError:
+    print('El archivo ingresado es inexistente')
+    exit(1)
+
+except json.JSONDecodeError:
+    print('El archivo ingresado no tiene contenido')
+    exit(1)
 
 print(data)
 
