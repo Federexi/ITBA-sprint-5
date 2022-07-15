@@ -2,7 +2,7 @@
 
 * TPS (Sistema de procesamientos de Transacciones)
 
-Script que recibe informacion de TPS y emite un reporte que muestra la razon de porque las transacciones fueron rechazadas. Si las transacciones fueron aceptadas, se agrega el reporte sin detalle particular
+Script que recibe informacion de TPS y emite un reporte HTML que muestra la razon de porque las transacciones fueron rechazadas. Si las transacciones fueron aceptadas, se agrega el reporte sin detalle particular
 
 ## Dependencias
 
@@ -18,18 +18,18 @@ Para instalar libreria Jinja2 en python
 
 $ pip install -U Jinja2
 
+Para instalar libreria jsonschema en python
+
+$ pip install jsonschema
+
 ## Correr el programa
 
-$ python3 cliente.py  (Obligatorio)
-
-$ python3 cliente.py  (Obligatorio)
+$ python3 cliente.py ejemplo.json (Obligatorio)
 
 
-
-
-* Los comando se ejecutan en una misma linea
+* Los comandos se ejecutan en una misma linea, siendo el tercero el nombre del archivo a chequear
 
 
 ## Grupo 3
 
-* Integrantes:Agustín Nahuel Bloise, Diego Ezequiel Benítez y Federico Bidarra.
+* Integrantes: Agustín Nahuel Bloise, Diego Ezequiel Benítez y Federico Bidarra.

@@ -65,7 +65,8 @@ except IOError:
 except json.JSONDecodeError:
     print('El archivo ingresado no tiene contenido')
     exit(1)
-print(data)
+
+# print(data)
 
 #clases Cuenta, Direccion y Cliente
 class Cuenta:
@@ -171,15 +172,15 @@ class Cliente:
 #Las clases Classic, Gold y Black heredan de la clase Cliente
 class Classic(Cliente):
     def __init__(self, nombre, apellido, numero, dni, tipo, calle, numero_direccion, ciudad, provincia, pais, transacciones=[]): #no se porque toma como código muerto a transacciones=[] en esta línea, si funcionan los métodos que haga Agustín, entonces borrar transacciones=[] en esta línea
-        super().__init__(nombre, apellido, numero, dni, tipo, calle, numero_direccion, ciudad, provincia, pais, transacciones=[])
+        super().__init__(nombre, apellido, numero, dni, tipo, calle, numero_direccion, ciudad, provincia, pais, transacciones)
 
 class Gold(Cliente):
     def __init__(self, nombre, apellido, numero, dni, tipo, calle, numero_direccion, ciudad, provincia, pais, transacciones=[]): #lo mismo que dije en Classic sobre transacciones=[]
-        super().__init__(nombre, apellido, numero, dni, tipo, calle, numero_direccion, ciudad, provincia, pais, transacciones=[])
+        super().__init__(nombre, apellido, numero, dni, tipo, calle, numero_direccion, ciudad, provincia, pais, transacciones)
 
 class Black(Cliente):
     def __init__(self, nombre, apellido, numero, dni, tipo, calle, numero_direccion, ciudad, provincia, pais, transacciones=[]): #lo mismo que dije en Classic sobre transacciones=[]
-        super().__init__(nombre, apellido, numero, dni, tipo, calle, numero_direccion, ciudad, provincia, pais, transacciones=[])
+        super().__init__(nombre, apellido, numero, dni, tipo, calle, numero_direccion, ciudad, provincia, pais, transacciones)
 
 #Creación de la clase Razon, asociada con la clase Cliente
 class Razon:
