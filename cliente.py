@@ -723,7 +723,7 @@ elif cl.tipo == 'CLASSIC':
     cliente.cuenta.costo_transferencias = 0.01
 
 cliente.retorno() # retorna una lista diagramada a base de diccionarios que contiene como primer elemento los datos del cliente que se necesitan exportar y a partir del segundo elemento cada uno es una transaccion con la info a exportar 
-
+info=cliente.retorno()
 #ejemplos para llamar a los valores:
 # cliente.retorno()[0] -->  [{'nombre_completo': 'Nicolas Gaston'}, {'numero': 100001}, {'DNI': '29494777'}, {'direccion': 'Rivadavia 7900, Capital Federal, Buenos Aires, Argentina'}]
 # cliente.retorno()[0][0] -->  {'nombre_completo': 'Nicolas Gaston'}
@@ -739,4 +739,4 @@ cliente.retorno() # retorna una lista diagramada a base de diccionarios que cont
  template = env.get_template("template.html")
 
  with open ("rps.html","w") as file:
-     file.write(template.render(data=data))
+     file.write(template.render(info=info))
