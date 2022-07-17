@@ -732,11 +732,11 @@ cliente.retorno() # retorna una lista diagramada a base de diccionarios que cont
 
 #Creacion de HTML
 
-# env = Environment(
-#     loader=PackageLoader("paquete"),
-#     autoescape=select_autoescape()
-# )
-# template = env.get_template("template.html")
+ env = Environment(
+    loader=PackageLoader("paquete"),
+    autoescape=select_autoescape()
+ )
+ template = env.get_template("template.html")
 
-# with open ("rps.html","w") as file:
-#     file.write(template.render(data=data))
+ with open ("rps.html","w") as file:
+     file.write(template.render(data=data))
