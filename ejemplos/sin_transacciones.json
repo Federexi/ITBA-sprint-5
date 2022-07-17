@@ -1,0 +1,15 @@
+{
+	"numero": 100001,
+	"nombre": "Nicolas",
+	"apellido": "Gaston",
+	"dni": "29494777",
+	"tipo": "CLASSIC",
+	"direccion" : {
+		"calle" : "Rivadavia",
+		"numero" : "7900",
+		"ciudad": "Capital Federal",
+		"provincia" : "Buenos Aires",
+		"pais": "Argentina"
+	},
+    "transacciones": []
+}
