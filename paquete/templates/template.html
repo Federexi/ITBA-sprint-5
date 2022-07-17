@@ -33,14 +33,13 @@
             </tr>
           </thead>
           <tbody>
-            
-            {% for transaccion in enumerate(info) %}
+            {% for transaccion in info_transacciones:%}
               <tr>
-                <td>{{transaccion[i+1]['fecha']}}</td>
-                <td>{{transaccion[i+1]['tipo']}}</td>  
-                <td>{{transaccion[i+1]['estado']}}</td>
-                <td>{{transaccion[i+1]['monto']}}</td>
-                <td>{{transaccion[i+1]['razon']}}</td>
+                <td>{{transaccion[0]['fecha']}}</td>
+                <td>{{transaccion[1]['tipo']}}</td>  
+                <td>{{transaccion[2]['estado']}}</td>
+                <td>{{transaccion[3]['monto']}}</td>
+                <td>{{transaccion[4]['razon']}}</td>
               </tr>
             {% endfor %}
           </tbody>
