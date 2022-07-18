@@ -249,19 +249,19 @@ class Classic(Cliente):
                 globals()[f"razon{index}"] = Razon_compra_dolar('Fondos insuficientes')
                 return globals()[f"razon{index}"].razon
             else:
-                globals()[f"razon{index}"] = Razon_compra_dolar('Razón desconocida')
+                globals()[f"razon{index}"] = Razon_compra_dolar('Razon desconocida')
                 return globals()[f"razon{index}"].razon
         else:
-            globals()[f"razon{index}"] = Razon_compra_dolar(f'Los clientes {self.tipo} no pueden comprar dólares')
+            globals()[f"razon{index}"] = Razon_compra_dolar(f'Los clientes {self.tipo} no pueden comprar dolares')
             return globals()[f"razon{index}"].razon
 
 
     def filtro_alta_tarj(self,index):
         if self.puede_crear_tarjeta_credito():
-            globals()[f"razon{index}"] = Razon_alta_tarjeta_credito('Razón desconocida')
+            globals()[f"razon{index}"] = Razon_alta_tarjeta_credito('Razon desconocida')
             return globals()[f"razon{index}"].razon
         else:
-            globals()[f"razon{index}"] = Razon_alta_tarjeta_credito('Alcanzó el límite de tarjetas de crédito')
+            globals()[f"razon{index}"] = Razon_alta_tarjeta_credito('Alcanzo el limite de tarjetas de credito')
             return globals()[f"razon{index}"].razon
 
     def filtro_alta_chequera(self,index):  
@@ -270,10 +270,10 @@ class Classic(Cliente):
             return globals()[f"razon{index}"].razon
         else:
             if self.puede_crear_chequera():
-                globals()[f"razon{index}"] = Razon_alta_chequera('Razón desconocida')
+                globals()[f"razon{index}"] = Razon_alta_chequera('Razon desconocida')
                 return globals()[f"razon{index}"].razon
             else:
-                globals()[f"razon{index}"] = Razon_alta_chequera('Alcanzó el límite de chequeras')
+                globals()[f"razon{index}"] = Razon_alta_chequera('Alcanzo el limite de chequeras')
                 return globals()[f"razon{index}"].razon
 
     def filtro_retiro_efectivo_cajero(self,iterador,index): 
@@ -282,20 +282,20 @@ class Classic(Cliente):
                 globals()[f"razon{index}"] = Razon_retiro_efectivo_cajero_automatico('Saldo en cuenta insuficiente')
                 return globals()[f"razon{index}"].razon
             elif iterador['monto'] > iterador['cupoDiarioRestante']:
-                globals()[f"razon{index}"] = Razon_retiro_efectivo_cajero_automatico('La operación excede el límite de cupo diario restante')
+                globals()[f"razon{index}"] = Razon_retiro_efectivo_cajero_automatico('La operacion excede el limite de cupo diario restante')
                 return globals()[f"razon{index}"].razon
             else:
-                globals()[f"razon{index}"] = Razon_retiro_efectivo_cajero_automatico('Razón desconocida')
+                globals()[f"razon{index}"] = Razon_retiro_efectivo_cajero_automatico('Razon desconocida')
                 return globals()[f"razon{index}"].razon
         else:
             if iterador['monto'] > iterador['saldoEnCuenta'] + self.cuenta.saldo_disponible:
                 globals()[f"razon{index}"] = Razon_retiro_efectivo_cajero_automatico('Saldo en cuenta insuficiente')
                 return globals()[f"razon{index}"].razon
             elif iterador['monto'] > iterador['cupoDiarioRestante']:
-                globals()[f"razon{index}"] = Razon_retiro_efectivo_cajero_automatico('La operación excede el límite de cupo diario restante')
+                globals()[f"razon{index}"] = Razon_retiro_efectivo_cajero_automatico('La operacion excede el limite de cupo diario restante')
                 return globals()[f"razon{index}"].razon
             else:
-                globals()[f"razon{index}"] = Razon_retiro_efectivo_cajero_automatico('Razón desconocida')
+                globals()[f"razon{index}"] = Razon_retiro_efectivo_cajero_automatico('Razon desconocida')
                 return globals()[f"razon{index}"].razon
 
     def filtro_transf_enviada(self,iterador,index):       
@@ -303,16 +303,16 @@ class Classic(Cliente):
             globals()[f"razon{index}"] = Razon_transferencia_enviada('Saldo en cuenta insuficiente')
             return globals()[f"razon{index}"].razon
         else:
-            globals()[f"razon{index}"] = Razon_transferencia_enviada('Razón desconocida')
+            globals()[f"razon{index}"] = Razon_transferencia_enviada('Razon desconocida')
             return globals()[f"razon{index}"].razon
 
 
     def filtro_transf_recibida(self,iterador,index):        
         if iterador['monto'] > self.cuenta.limite_transferencia:
-            globals()[f"razon{index}"] = Razon_transferencia_recibida('Excede el monto límite a recibir')
+            globals()[f"razon{index}"] = Razon_transferencia_recibida('Excede el monto limite a recibir')
             return globals()[f"razon{index}"].razon
         else:
-            globals()[f"razon{index}"] = Razon_transferencia_recibida('Razón desconocida')
+            globals()[f"razon{index}"] = Razon_transferencia_recibida('Razon desconocida')
             return globals()[f"razon{index}"].razon
 
     def filtro(self,t,i): #funcion filtro principal que determina si la transaccion se acepto o rechazo y busca las igualdades correspondientes para ejecurar la funcion deseada
@@ -401,19 +401,19 @@ class Gold(Cliente):
                 globals()[f"razon{index}"] = Razon_compra_dolar('Fondos insuficientes')
                 return globals()[f"razon{index}"].razon
             else:
-                globals()[f"razon{index}"] = Razon_compra_dolar('Razón desconocida')
+                globals()[f"razon{index}"] = Razon_compra_dolar('Razon desconocida')
                 return globals()[f"razon{index}"].razon
         else:
-            globals()[f"razon{index}"] = Razon_compra_dolar(f'Los clientes {self.tipo} no pueden comprar dólares')
+            globals()[f"razon{index}"] = Razon_compra_dolar(f'Los clientes {self.tipo} no pueden comprar dolares')
             return globals()[f"razon{index}"].razon
 
 
     def filtro_alta_tarj(self,index):
         if self.puede_crear_tarjeta_credito():
-            globals()[f"razon{index}"] = Razon_alta_tarjeta_credito('Razón desconocida')
+            globals()[f"razon{index}"] = Razon_alta_tarjeta_credito('Razon desconocida')
             return globals()[f"razon{index}"].razon
         else:
-            globals()[f"razon{index}"] = Razon_alta_tarjeta_credito('Alcanzó el límite de tarjetas de crédito')
+            globals()[f"razon{index}"] = Razon_alta_tarjeta_credito('Alcanzo el limite de tarjetas de credito')
             return globals()[f"razon{index}"].razon
 
     def filtro_alta_chequera(self,index):  
@@ -422,10 +422,10 @@ class Gold(Cliente):
             return globals()[f"razon{index}"].razon
         else:
             if self.puede_crear_chequera():
-                globals()[f"razon{index}"] = Razon_alta_chequera('Razón desconocida')
+                globals()[f"razon{index}"] = Razon_alta_chequera('Razon desconocida')
                 return globals()[f"razon{index}"].razon
             else:
-                globals()[f"razon{index}"] = Razon_alta_chequera('Alcanzó el límite de chequeras')
+                globals()[f"razon{index}"] = Razon_alta_chequera('Alcanzo el limite de chequeras')
                 return globals()[f"razon{index}"].razon
 
     def filtro_retiro_efectivo_cajero(self,iterador,index): 
@@ -434,20 +434,20 @@ class Gold(Cliente):
                 globals()[f"razon{index}"] = Razon_retiro_efectivo_cajero_automatico('Saldo en cuenta insuficiente')
                 return globals()[f"razon{index}"].razon
             elif iterador['monto'] > iterador['cupoDiarioRestante']:
-                globals()[f"razon{index}"] = Razon_retiro_efectivo_cajero_automatico('La operación excede el límite de cupo diario restante')
+                globals()[f"razon{index}"] = Razon_retiro_efectivo_cajero_automatico('La operacion excede el limite de cupo diario restante')
                 return globals()[f"razon{index}"].razon
             else:
-                globals()[f"razon{index}"] = Razon_retiro_efectivo_cajero_automatico('Razón desconocida')
+                globals()[f"razon{index}"] = Razon_retiro_efectivo_cajero_automatico('Razon desconocida')
                 return globals()[f"razon{index}"].razon
         else:
             if iterador['monto'] > iterador['saldoEnCuenta'] + self.cuenta.saldo_disponible:
                 globals()[f"razon{index}"] = Razon_retiro_efectivo_cajero_automatico('Saldo en cuenta insuficiente')
                 return globals()[f"razon{index}"].razon
             elif iterador['monto'] > iterador['cupoDiarioRestante']:
-                globals()[f"razon{index}"] = Razon_retiro_efectivo_cajero_automatico('La operación excede el límite de cupo diario restante')
+                globals()[f"razon{index}"] = Razon_retiro_efectivo_cajero_automatico('La operacion excede el limite de cupo diario restante')
                 return globals()[f"razon{index}"].razon
             else:
-                globals()[f"razon{index}"] = Razon_retiro_efectivo_cajero_automatico('Razón desconocida')
+                globals()[f"razon{index}"] = Razon_retiro_efectivo_cajero_automatico('Razon desconocida')
                 return globals()[f"razon{index}"].razon
 
     def filtro_transf_enviada(self,iterador,index):       
@@ -455,16 +455,16 @@ class Gold(Cliente):
             globals()[f"razon{index}"] = Razon_transferencia_enviada('Saldo en cuenta insuficiente')
             return globals()[f"razon{index}"].razon
         else:
-            globals()[f"razon{index}"] = Razon_transferencia_enviada('Razón desconocida')
+            globals()[f"razon{index}"] = Razon_transferencia_enviada('Razon desconocida')
             return globals()[f"razon{index}"].razon
 
 
     def filtro_transf_recibida(self,iterador,index):        
         if iterador['monto'] > self.cuenta.limite_transferencia:
-            globals()[f"razon{index}"] = Razon_transferencia_recibida('Excede el monto límite a recibir')
+            globals()[f"razon{index}"] = Razon_transferencia_recibida('Excede el monto limite a recibir')
             return globals()[f"razon{index}"].razon
         else:
-            globals()[f"razon{index}"] = Razon_transferencia_recibida('Razón desconocida')
+            globals()[f"razon{index}"] = Razon_transferencia_recibida('Razon desconocida')
             return globals()[f"razon{index}"].razon
 
     def filtro(self,t,i): #funcion filtro principal que determina si la transaccion se acepto o rechazo y busca las igualdades correspondientes para ejecurar la funcion deseada
@@ -547,19 +547,19 @@ class Black(Cliente):
                 globals()[f"razon{index}"] = Razon_compra_dolar('Fondos insuficientes')
                 return globals()[f"razon{index}"].razon
             else:
-                globals()[f"razon{index}"] = Razon_compra_dolar('Razón desconocida')
+                globals()[f"razon{index}"] = Razon_compra_dolar('Razon desconocida')
                 return globals()[f"razon{index}"].razon
         else:
-            globals()[f"razon{index}"] = Razon_compra_dolar(f'Los clientes {self.tipo} no pueden comprar dólares')
+            globals()[f"razon{index}"] = Razon_compra_dolar(f'Los clientes {self.tipo} no pueden comprar dolares')
             return globals()[f"razon{index}"].razon
 
 
     def filtro_alta_tarj(self,index):
         if self.puede_crear_tarjeta_credito():
-            globals()[f"razon{index}"] = Razon_alta_tarjeta_credito('Razón desconocida')
+            globals()[f"razon{index}"] = Razon_alta_tarjeta_credito('Razon desconocida')
             return globals()[f"razon{index}"].razon
         else:
-            globals()[f"razon{index}"] = Razon_alta_tarjeta_credito('Alcanzó el límite de tarjetas de crédito')
+            globals()[f"razon{index}"] = Razon_alta_tarjeta_credito('Alcanzo el limite de tarjetas de credito')
             return globals()[f"razon{index}"].razon
 
     def filtro_alta_chequera(self,index):  
@@ -568,10 +568,10 @@ class Black(Cliente):
             return globals()[f"razon{index}"].razon
         else:
             if self.puede_crear_chequera():
-                globals()[f"razon{index}"] = Razon_alta_chequera('Razón desconocida')
+                globals()[f"razon{index}"] = Razon_alta_chequera('Razon desconocida')
                 return globals()[f"razon{index}"].razon
             else:
-                globals()[f"razon{index}"] = Razon_alta_chequera('Alcanzó el límite de chequeras')
+                globals()[f"razon{index}"] = Razon_alta_chequera('Alcanzo el limite de chequeras')
                 return globals()[f"razon{index}"].razon
 
     def filtro_retiro_efectivo_cajero(self,iterador,index): 
@@ -580,20 +580,20 @@ class Black(Cliente):
                 globals()[f"razon{index}"] = Razon_retiro_efectivo_cajero_automatico('Saldo en cuenta insuficiente')
                 return globals()[f"razon{index}"].razon
             elif iterador['monto'] > iterador['cupoDiarioRestante']:
-                globals()[f"razon{index}"] = Razon_retiro_efectivo_cajero_automatico('La operación excede el límite de cupo diario restante')
+                globals()[f"razon{index}"] = Razon_retiro_efectivo_cajero_automatico('La operacion excede el limite de cupo diario restante')
                 return globals()[f"razon{index}"].razon
             else:
-                globals()[f"razon{index}"] = Razon_retiro_efectivo_cajero_automatico('Razón desconocida')
+                globals()[f"razon{index}"] = Razon_retiro_efectivo_cajero_automatico('Razon desconocida')
                 return globals()[f"razon{index}"].razon
         else:
             if iterador['monto'] > iterador['saldoEnCuenta'] + self.cuenta.saldo_disponible:
                 globals()[f"razon{index}"] = Razon_retiro_efectivo_cajero_automatico('Saldo en cuenta insuficiente')
                 return globals()[f"razon{index}"].razon
             elif iterador['monto'] > iterador['cupoDiarioRestante']:
-                globals()[f"razon{index}"] = Razon_retiro_efectivo_cajero_automatico('La operación excede el límite de cupo diario restante')
+                globals()[f"razon{index}"] = Razon_retiro_efectivo_cajero_automatico('La operacion excede el limite de cupo diario restante')
                 return globals()[f"razon{index}"].razon
             else:
-                globals()[f"razon{index}"] = Razon_retiro_efectivo_cajero_automatico('Razón desconocida')
+                globals()[f"razon{index}"] = Razon_retiro_efectivo_cajero_automatico('Razon desconocida')
                 return globals()[f"razon{index}"].razon
 
     def filtro_transf_enviada(self,iterador,index):       
@@ -601,16 +601,16 @@ class Black(Cliente):
             globals()[f"razon{index}"] = Razon_transferencia_enviada('Saldo en cuenta insuficiente')
             return globals()[f"razon{index}"].razon
         else:
-            globals()[f"razon{index}"] = Razon_transferencia_enviada('Razón desconocida')
+            globals()[f"razon{index}"] = Razon_transferencia_enviada('Razon desconocida')
             return globals()[f"razon{index}"].razon
 
 
     def filtro_transf_recibida(self,iterador,index):        
         if iterador['monto'] > self.cuenta.limite_transferencia:
-            globals()[f"razon{index}"] = Razon_transferencia_recibida('Excede el monto límite a recibir')
+            globals()[f"razon{index}"] = Razon_transferencia_recibida('Excede el monto limite a recibir')
             return globals()[f"razon{index}"].razon
         else:
-            globals()[f"razon{index}"] = Razon_transferencia_recibida('Razón desconocida')
+            globals()[f"razon{index}"] = Razon_transferencia_recibida('Razon desconocida')
             return globals()[f"razon{index}"].razon
 
     def filtro(self,t,i): #funcion filtro principal que determina si la transaccion se acepto o rechazo y busca las igualdades correspondientes para ejecurar la funcion deseada
@@ -722,21 +722,26 @@ elif cl.tipo == 'CLASSIC':
     cliente.cuenta.saldo_disponible = 0
     cliente.cuenta.costo_transferencias = 0.01
 
-cliente.retorno() # retorna una lista diagramada a base de diccionarios que contiene como primer elemento los datos del cliente que se necesitan exportar y a partir del segundo elemento cada uno es una transaccion con la info a exportar 
-info=cliente.retorno()
+info = cliente.retorno() # retorna una lista diagramada a base de diccionarios que contiene como primer elemento los datos del cliente que se necesitan exportar y a partir del segundo elemento cada uno es una transaccion con la info a exportar 
+info_transacciones = info.copy()
+if not info_transacciones == []:
+    info_transacciones.pop(0) #creo lista de transacciones a recorrer en HTML
+
 #ejemplos para llamar a los valores:
 # cliente.retorno()[0] -->  [{'nombre_completo': 'Nicolas Gaston'}, {'numero': 100001}, {'DNI': '29494777'}, {'direccion': 'Rivadavia 7900, Capital Federal, Buenos Aires, Argentina'}]
 # cliente.retorno()[0][0] -->  {'nombre_completo': 'Nicolas Gaston'}
 # cliente.retorno()[0][0]['nombre_completo'] -->  Nicolas Gaston
 
-
 #Creacion de HTML
 
- env = Environment(
+env = Environment(
     loader=PackageLoader("paquete"),
     autoescape=select_autoescape()
- )
- template = env.get_template("template.html")
+)
+template = env.get_template("template.html")
+filename = "rps.html"
+with open (filename,"w") as file:
+    file.write(template.render(info = info, info_transacciones = info_transacciones))
 
- with open ("rps.html","w") as file:
-     file.write(template.render(info=info))
+nombre = info[0][0]['nombre_completo']
+print(f'El informe {filename} del cliente {nombre} se ha creado exitosamente') #emito mensaje de confirmacion

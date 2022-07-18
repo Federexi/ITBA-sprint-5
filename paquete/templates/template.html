@@ -1,45 +1,54 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-
-    <title>Reportes</title>
+    <title>Reporte</title>
   </head>
   <body>
-    <h1></h1>
-      <h1 class="text-center border bg-primary text-white container">Reportes</h1>
-      <div class="container">
-        <ul class="list-group list-group-horizontal text-white">
-          <li class="list-group-item bg-primary"> Nombre: {{info[0][0]['nombre_completo']}}</li>
-          <li class="list-group-item bg-primary">Numero: {{info[0][1]['numero']}}</li>
-          <li class="list-group-item bg-primary">DNI: {{info[0][2]['DNI']}}</li>
-          <li class="list-group-item bg-primary">Direccion: {{info[0][3]['direccion']}}</li>
-        </ul>
-    </div >
+    <h1 class="text-center">Reporte</h1>
     <div class="container">
+      <h5>Usuario:</h5>
+      <table class="table table-striped table-bordered">
+        <thead>
+          <tr>
+            <th scope="col" class="table-primary text-center">Nombre</th>
+            <th scope="col" class="table-primary text-center">Numero</th>
+            <th scope="col" class="table-primary text-center">DNI</th>
+            <th scope="col" class="table-primary text-center">Direccion</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr>
+              <td class="text-center">{{info[0][0]['nombre_completo']}}</td>
+              <td class="text-center">{{info[0][1]['numero']}}</td>  
+              <td class="text-center">{{info[0][2]['DNI']}}</td>
+              <td class="text-center">{{info[0][3]['direccion']}}</td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="container">
+      <h5>Transacciones:</h5>
       <table class="table table-striped table-bordered">
           <thead>
             <tr>
-              <th scope="col" class="table-primary">Fecha</th>
-              <th scope="col" class="table-primary">Tipo de operacion</th>
-              <th scope="col" class="table-primary">Estado</th>
-              <th scope="col" class="table-primary">Monto</th>
-              <th scope="col" class="table-primary">Razon</th>
+              <th scope="col" class="table-primary text-center">Fecha</th>
+              <th scope="col" class="table-primary text-center">Tipo de operacion</th>
+              <th scope="col" class="table-primary text-center">Estado</th>
+              <th scope="col" class="table-primary text-center">Monto</th>
+              <th scope="col" class="table-primary text-center">Razon</th>
             </tr>
           </thead>
           <tbody>
             {% for transaccion in info_transacciones %}
               <tr>
-                <td>{{transaccion[0]['fecha']}}</td>
-                <td>{{transaccion[1]['tipo']}}</td>  
-                <td>{{transaccion[2]['estado']}}</td>
-                <td>{{transaccion[3]['monto']}}</td>
-                <td>{{transaccion[4]['razon']}}</td>
+                <td class="text-center">{{transaccion[0]['fecha']}}</td>
+                <td class="text-center">{{transaccion[1]['tipo']}}</td>  
+                <td class="text-center">{{transaccion[2]['estado']}}</td>
+                <td class="text-center">$ {{transaccion[3]['monto']}}</td>
+                <td class="text-center">{{transaccion[4]['razon']}}</td>
               </tr>
             {% endfor %}
           </tbody>
@@ -51,4 +60,3 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
   </body>
 </html>
-
